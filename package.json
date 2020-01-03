@@ -1,0 +1,14 @@
+{
+  "name": "hrts-cli",
+  "version": "0.1.0",
+  "description": "hrts-cli",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "haobin",
+  "license": "ISC",
+  "bin": {
+    "hrts-build": "./bin/hrts-build.js"
+  }
+}
