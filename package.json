@@ -1,6 +1,6 @@
 {
   "name": "hrts-cli",
-  "version": "0.1.7",
+  "version": "0.1.0",
   "description": "hrts-cli",
   "main": "index.js",
   "scripts": {
