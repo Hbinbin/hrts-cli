@@ -26,18 +26,35 @@ program.version('0.1.7', '-v, --version')
         {
           name: 'author',
           message: '请输入作者名称'
+        },
+        {
+          type: 'checkbox',
+          name: 'statusManagementTool',
+          message: '请选择状态管理工具',
+          choices: [
+            {
+              name: 'redux',
+              checked: true
+            },
+            {
+              name: 'blur'
+            }
+          ]
         }
       ]).then((answers) => {
+        const { appName, description, author, statusManagementTool } = answers
+        const downloadUrl = statusManagementTool === 'redux'
+          ? 'https://github.com:Hbinbin/react-typescript-app-template#master'
+          : 'https://github.com/Hbinbin/react-typescript-mobx-template#master'
         const spinner = ora('正在初始化项目...')
         spinner.start()
-        download('https://github.com:Hbinbin/react-typescript-app-template#master', name, { clone: true }, (err) => {
+        download(downloadUrl, name, { clone: true }, (err) => {
           if (err) {
             spinner.fail()
             console.log(symbols.error, chalk.red(err))
           } else {
             spinner.succeed()
             const fileName = `${name}/package.json`
-            const { appName, description, author } = answers
             const meta = {
               name: appName,
               description,
